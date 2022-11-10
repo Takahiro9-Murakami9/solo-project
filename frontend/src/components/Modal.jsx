@@ -24,7 +24,7 @@ const Modal = ({ handleClose, show, children, answers }) => {
         <p className='display-4 text-primary'>{totalScore}/80</p>
         <p className='display-7 text-info'><dt>{message()}</dt></p>
         <button type="button" className="btn btn-primary btn-sm m-2">
-          Past scores
+          Past 
         </button>
         <button type="button" onClick={handleClose} className="btn btn-primary btn-sm m-2">
           Close
