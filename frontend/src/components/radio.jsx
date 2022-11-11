@@ -1012,7 +1012,7 @@ class Radio extends Component {
               </button>
             </form>
             <Modal show={this.state.show} handleClose={this.hideModal} answers={this.state.answers}>
-              <h1 className="text-success">Your Score!</h1>
+              <h1 className="text-success">Your Score!!</h1>
             </Modal>
             {/* <button type="button" onClick={this.showModal}>
               Open
