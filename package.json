@@ -26,5 +26,8 @@
     "seed:data": "npx knex seed:run --knexfile backend/db/knexfile.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
+  }
 }
