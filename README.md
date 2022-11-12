@@ -29,7 +29,14 @@ psql
 CREATE DATABASE <db_name>
 ```
 
-After creating database, run the following comannd to create tables.
+After creating database, run the following command to create tables.
 ```
 npm run migrate:latest
 ```
+To start the server, run the following command
+```
+npm start
+```
+
+
+
