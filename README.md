@@ -24,5 +24,6 @@ Write "npm install" in the root folder to install dependencies.
 Create a postgresql database.
 
 After creating database, run the following comannd to create tables.
-
+```
 npm run migrate:latest
+```
