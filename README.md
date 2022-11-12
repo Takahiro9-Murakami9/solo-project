@@ -44,4 +44,15 @@ cd frontend
 npm install
 ```
 
+## Set up knexfile
+
+You need to make env.local file for configurations. Inside env.local file, please write the following variables:
+```
+DB_USER=<your_db_username>
+DB_NAME=<your_db_name>
+DB_PASSWORD=<your_db_password>
+NODE_ENV=development
+```
+
+
 
