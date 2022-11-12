@@ -19,9 +19,15 @@ install postgresql
 
 ## Set up
 
-Write "npm install" in the root folder to install dependencies.
-
-Create a postgresql database.
+By running the following command, you can install dependencies.
+```
+npm install
+```
+Next, create a postgresql database.
+```
+psql
+CREATE DATABASE <db_name>
+```
 
 After creating database, run the following comannd to create tables.
 ```
