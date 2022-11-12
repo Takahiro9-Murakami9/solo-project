@@ -32,11 +32,16 @@ CREATE DATABASE <db_name>
 After creating database, run the following command to create tables.
 ```
 npm run migrate:latest
+
 ```
 To start the server, run the following command
 ```
 npm start
 ```
-
+For creating the frontend, move to frontend folder, then install dependencies by following command.
+```
+cd frontend
+npm install
+```
 
 
