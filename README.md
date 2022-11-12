@@ -6,13 +6,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 After Covid-19, many people don't go out much and live alone. As a result, more and more people are feeling lonely. This app is an app that allows you to check how lonely you feel.
 
-### `npm start`
+### Feature
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You can measure your loneliness using ucla loneliness scale version 3.
+https://peplau.psych.ucla.edu/loneliness/
 
 
 ### `npm run build`
