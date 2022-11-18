@@ -24,7 +24,7 @@
   "scripts": {
     "start": "cd frontend && react-scripts start",
     "startbackend": "cd backend && npx nodemon server.js",
-    "build": "npm install && cd frontend && npm install && npm run build",
+    "build": "npm install && npm run migrate:latest && cd frontend && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate:latest": "npx knex migrate:latest --knexfile backend/db/knexfile",
     "migrate:down": "npx knex migrate:down --knexfile backend/db/knexfile",

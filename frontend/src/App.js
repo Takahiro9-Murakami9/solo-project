@@ -27,7 +27,7 @@ function App() {
                 })
                 
                 const content = await response.json();
-                console.log(content);
+                // console.log(content);
                 setFirstName(content.first_name)
                 setId(content.id)
             }

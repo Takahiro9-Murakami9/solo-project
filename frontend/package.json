@@ -14,6 +14,7 @@
     "production": "^0.0.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
+    "react-chartjs-2": "^5.0.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "react-router-dom": "^5.3.4",
@@ -48,6 +49,8 @@
     "fsevents": "^2.3.2"
   },
   "devDependencies": {
+    "chart.js": "^4.0.1",
+    "react-chartjs-2": "^5.0.1",
     "react-router-dom": "^5.3.4"
   }
 }
