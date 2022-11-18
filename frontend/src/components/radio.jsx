@@ -1011,7 +1011,7 @@ class Radio extends Component {
                 Submit
               </button>
             </form>
-            <Modal show={this.state.show} handleClose={this.hideModal} answers={this.state.answers}>
+            <Modal show={this.state.show} handleClose={this.hideModal} handleOpen={this.showModal} answers={this.state.answers}>
               <h1 className="text-success">Your Score!</h1>
             </Modal>
             {/* <button type="button" onClick={this.showModal}>
