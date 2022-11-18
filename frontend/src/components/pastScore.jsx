@@ -2,7 +2,7 @@ import './modal.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import React, { useEffect, useState } from 'react';
 import { Line } from "react-chartjs-2";
-import { Chart as chartjs } from "chart.js/auto";
+// import { Chart as chartjs } from "chart.js/auto";
 
 
 const PastScore = () => {
@@ -69,12 +69,12 @@ const graphData = {
 
     return ( 
       <div className="pastscore">
-      
-        id: {ID}<br></br>
-        score: {score}<br></br>
-        date: {date}
+        <div style={{ width: 700, alignItems: 'center', justifyContent: 'center', display: 'flex' }}>
+          {/* id: {ID}<br></br>
+          score: {score}<br></br>
+          date: {date} */}
         <Line data={graphData} />
-
+        </div>
       </div>
     );
 }
