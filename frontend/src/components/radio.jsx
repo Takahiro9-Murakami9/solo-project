@@ -8,11 +8,11 @@ class Radio extends Component {
     super(props);
     this.state = {
         show: false,
-        email: "",
-        name: {
-          firstName: "",
-          lastName: ""
-        },
+        // email: "",
+        // name: {
+        //   firstName: "",
+        //   lastName: ""
+        // },
         yearMonthDate: "",
         answers: {
           ans1: "",
@@ -53,8 +53,8 @@ class Radio extends Component {
 
   onValueChange(event) {
     let answers = this.state.answers;
-    let name = this.state.name;
-    let email = this.state.email;
+    // let name = this.state.name;
+    // let email = this.state.email;
     
     if(event.target.name === "ans1") {
       answers.ans1 = event.target.value;
@@ -96,38 +96,43 @@ class Radio extends Component {
       answers.ans19 = event.target.value;
     }else if(event.target.name === "ans20") {
       answers.ans20 = event.target.value;
-    }else if(event.target.name === "firstName") {
-      name.firstName = event.target.value;
-    }else if(event.target.name === "lastName") {
-      name.lastName = event.target.value;
-    }else if(event.target.name === "email") {
-      email = event.target.value;
     }
+    // else if(event.target.name === "firstName") {
+    //   name.firstName = event.target.value;
+    // }else if(event.target.name === "lastName") {
+    //   name.lastName = event.target.value;
+    // }else if(event.target.name === "email") {
+    //   email = event.target.value;
+    // }
 
-    this.setState({ name: name, answers: answers, email: email }, function() {
+    this.setState({ answers: answers }, function() {
       // console.log(this.state);
     })
   };
 
   async formSubmit(event) {
     event.preventDefault();
+
+    const{ id } = this.props;
+    const userID = id;
+
     const answers = this.state.answers;
-    const name = this.state.name;
-    const email = this.state.email;
+    // const name = this.state.name;
+    // const email = this.state.email;
     const showDate = new Date();
     const yearMonthDate = showDate.getDate() + '/'+ (showDate.getMonth()+1) + '/' + showDate.getFullYear();
     console.log(yearMonthDate);
     console.log(showDate);
-    console.log(name);
+    // console.log(name);
     console.log(answers);
-    console.log(email);
+    // console.log(email);
     await fetch("http://localhost:8080/getSurvey", {
       method: "POST",
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, answers, email, yearMonthDate }),
+      body: JSON.stringify({ userID, answers, yearMonthDate }),
     })
     .then((response) => response.json())
     .then((data) => console.log(data));
@@ -143,9 +148,9 @@ class Radio extends Component {
 
             <form onSubmit={this.formSubmit}>
 
-            <label><dt>First name</dt><input type="text" name="firstName" onChange={this.onValueChange} className="input-group-text"/></label>
+            {/* <label><dt>First name</dt><input type="text" name="firstName" onChange={this.onValueChange} className="input-group-text"/></label>
             <label><dt>Last name</dt><input type="text" name="lastName"  onChange={this.onValueChange} className="input-group-text"/></label>
-            <label><dt>email</dt><input type="text" name="email"  onChange={this.onValueChange} className="input-group-text"/></label>
+            <label><dt>email</dt><input type="text" name="email"  onChange={this.onValueChange} className="input-group-text"/></label> */}
             
 
               <p className="d-block p-2 bg-info text-white"><dt>1. How often do you feel that you are "in tune" with the people around you?</dt></p>

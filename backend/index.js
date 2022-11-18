@@ -34,29 +34,36 @@ app.get('/', function(req, res){
 
 app.post("/getSurvey", (req, res) => {
   try {
-    res.json(req.body);
-    const name = req.body["name"]
-    console.log(name.firstName);
+    // res.json(req.body);
+    // const name = req.body["name"]
+    // console.log(name.firstName);
+    const userID = req.body["userID"]
+    // console.log(userID);
     const answers = req.body["answers"]
-    const email = req.body["email"]
+    // const email = req.body["email"]
     const rawScore = [];
     Object.keys(answers).forEach(key => rawScore.push(Number(answers[key])));
     const totalScore = rawScore.reduce((previous, current) => previous + current);
     const date = req.body["yearMonthDate"]
-    console.log(typeof date);
+    console.log(totalScore);
 
-    knex.transaction(async trx => {
-      await trx("users")
-        .insert([{ first_name: name.firstName, last_name: name.lastName, email: email }])
-      // const created_user = await trx("users").insert({first_name: name.firstName, last_name: name.lastName, email: email});
-      // console.log(created_user);
-      const fetch_user_id = await knex
-        .select("id")
-        .from("users");
-      const lastID = fetch_user_id[fetch_user_id.length - 1].id + 1;
-      await trx("score_date")
-        .insert([{ score: totalScore, date: date, user_id: lastID}])
-    });
+    knex("score_date")
+      .insert({ score: totalScore, date: date, user_id: userID })
+      .then(res.send('success!'));
+
+
+    // knex.transaction(async trx => {
+    //   await trx("users")
+    //     .insert([{ first_name: name.firstName, last_name: name.lastName, email: email }])
+    //   // const created_user = await trx("users").insert({first_name: name.firstName, last_name: name.lastName, email: email});
+    //   // console.log(created_user);
+    //   const fetch_user_id = await knex
+    //     .select("id")
+    //     .from("users");
+    //   const lastID = fetch_user_id[fetch_user_id.length - 1].id + 1;
+    //   await trx("score_date")
+    //     .insert([{ score: totalScore, date: date, user_id: lastID}])
+    // });
     
     
   } catch (error) {
@@ -154,6 +161,19 @@ app.post("/logout", (req, res) => {
   res.send({
     message: 'success'
   })
+})
+
+app.get("/track", async (req, res) => {
+  const cookie = req.cookies['jwt'];
+  const claims = jwt.verify(cookie, SECRET_KEY);
+  console.log(claims.id);
+
+  const userScore = await knex
+    .select()
+    .from("score_date")
+    .where("user_id", claims.id); 
+
+  res.send(userScore)
 })
 
 app.listen(port, () => {

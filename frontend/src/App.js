@@ -14,6 +14,7 @@ import React, { useEffect, useState } from 'react';
 function App() {
 
   const [firstName, setFirstName] = useState('');
+  const [id, setId] = useState('');
 
     useEffect(() => {
         (
@@ -28,6 +29,7 @@ function App() {
                 const content = await response.json();
                 console.log(content);
                 setFirstName(content.first_name)
+                setId(content.id)
             }
 
         )();
@@ -45,10 +47,10 @@ function App() {
                 <Home firstName={firstName}/>
               </Route>
               <Route path="/measure">
-                <Radio />
+                <Radio id={id}/>
               </Route>
               <Route path="/pastscore">
-                <PastScore />
+                <PastScore id={id}/>
               </Route>
               <Route path="/login">
                 <Login setFirstName={setFirstName}/>
