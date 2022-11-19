@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
+// import styled from "styled-components";
 
 const Navbar = (props) => {
   // const { firstName, setFirstName } = props;
@@ -25,19 +26,27 @@ const Navbar = (props) => {
       if (props.firstName === undefined) {
         menu = (
           <div>
-            <Link className="p-4 display-7" to="/login">Log in</Link>
-            <Link className="p-4 display-7" to="/register">Register</Link>
+            <Link className="badge bg-primary m-2 fs-5" to="/login">Log in</Link>
+            <Link className="badge bg-primary m-2 fs-5" to="/register">Register</Link>
           </div>
         )
       }else {
         menu = (
           <ul className='navbar-nav me-auto mb-2 mb-md-0'>
             <li className='nav-item active'>
-              <Link className="p-4 display-7" to="/login" onClick={logout}>Logout</Link>
+              <Link className="badge bg-primary  m-2 fs-5" to="/login" onClick={logout}>Logout</Link>
             </li>
           </ul>
         )
       }
+
+      // const NavUnlisted = styled.ul`text-decoration: none;`;
+
+      // const linkStyle = {
+      //   margin: "1rem",
+      //   textDecoration: "none",
+      //   color: 'blue'
+      // };
 
 
 
@@ -51,9 +60,9 @@ const Navbar = (props) => {
           </div>
           <p><dt>This is a questionnaire that checks how lonely you feel!</dt></p>
           <div>
-            <Link className="p-4 display-7" to="/">Home</Link>
-            <Link className="p-4 display-7" to="/measure">Check your condition</Link>
-            <Link className="p-4 display-7" to="/pastscore">track your past scores</Link>
+            <Link className="badge bg-info m-2 fs-4" to="/">Home</Link>
+            <Link className="badge bg-info m-2 fs-4" to="/measure">Check your condition</Link>
+            <Link className="badge bg-info m-2 fs-4" to="/pastscore">track your past scores</Link>
           </div>
         </nav>    
       );

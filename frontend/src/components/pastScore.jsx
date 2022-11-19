@@ -6,9 +6,7 @@ import { Line } from "react-chartjs-2";
 
 
 const PastScore = () => {
-  // const{ id } = props;
-  // const userID = id;
-  const [ID, setID] = useState([]);
+  // const [ID, setID] = useState([]);
   const [score, setScore] = useState([]);
   const [date, setDate] = useState([]);
   // const [userID, setUserID] = useState('');
@@ -36,7 +34,7 @@ const PastScore = () => {
             content.forEach((value) => dateArr.push(value["date"]));
             // console.log(dateArr);
            
-            setID(idArr);
+            // setID(idArr);
             setScore(scoreArr);
             setDate(dateArr);
             // setUserID(content.user_id);
@@ -69,7 +67,7 @@ const graphData = {
 
     return ( 
       <div className="pastscore">
-        <div style={{ width: 700, alignItems: 'center', justifyContent: 'center', display: 'flex' }}>
+        <div style={{ width: 700, margin: "0 auto" }}>
           {/* id: {ID}<br></br>
           score: {score}<br></br>
           date: {date} */}

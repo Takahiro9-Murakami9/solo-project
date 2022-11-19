@@ -164,16 +164,24 @@ app.post("/logout", (req, res) => {
 })
 
 app.get("/track", async (req, res) => {
-  const cookie = req.cookies['jwt'];
-  const claims = jwt.verify(cookie, SECRET_KEY);
-  console.log(claims.id);
-
-  const userScore = await knex
-    .select()
-    .from("score_date")
-    .where("user_id", claims.id); 
-
-  res.send(userScore)
+  try{
+    const cookie = req.cookies['jwt'];
+    const claims = jwt.verify(cookie, SECRET_KEY);
+    console.log(claims.id);
+  
+    if (!claims) {
+      return res.status(401).send({message: "unauthenticated"});
+    }
+  
+    const userScore = await knex
+      .select()
+      .from("score_date")
+      .where("user_id", claims.id); 
+  
+    res.send(userScore)
+  }catch (e) {
+    return res.status(401).send({message: "unauthenticated"});
+  }
 })
 
 app.listen(port, () => {
